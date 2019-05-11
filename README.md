@@ -1,4 +1,8 @@
 # turkce-podcast
+### The podcast app, you can see and listen Turkish podcasts.
+
+![main page](src/assets/ss1.png)
+![main page](src/assets/ss2.png)
 
 ## Project setup
 ```
@@ -27,3 +31,4 @@ yarn run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+# turkce-podcast

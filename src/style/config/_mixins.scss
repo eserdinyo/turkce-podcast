@@ -1,0 +1,27 @@
+//Mobile First Dev
+@mixin res($breakpoint) {
+  //576px 1em = 16px;
+  @if $breakpoint==phone-land {
+    @media (min-width: 36em) {
+      @content;
+    }
+  }
+  //768px
+  @if $breakpoint==tab {
+    @media (min-width: 48em) {
+      @content;
+    }
+  }
+  //1024px
+  @if $breakpoint==tab-land {
+    @media (min-width: 64em) {
+      @content;
+    }
+  }
+  //1366px
+  @if $breakpoint==big {
+    @media (min-width: 1367px) {
+      @content;
+    }
+  }
+}

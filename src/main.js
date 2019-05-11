@@ -3,6 +3,8 @@ import App from './App.vue';
 import router from './router';
 import store from './store';
 
+import './style/main.scss';
+
 Vue.config.productionTip = false;
 
 new Vue({
@@ -10,3 +12,7 @@ new Vue({
   store,
   render: h => h(App),
 }).$mount('#app');
+
+router.afterEach(() => {
+  window.scrollTo(0, 0);
+})
