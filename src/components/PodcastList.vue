@@ -15,10 +15,22 @@ export default {
     Podcast
   },
   computed: {
-    ...mapState(["podcasts"])
+    ...mapState(["podcasts", "pageNumber"])
+  },
+  methods: {
+    getMorePodcasts() {
+      this.$store.dispatch("getPodcasts");
+
+      window.onscroll = ev => {
+        if (window.innerHeight + window.scrollY >= document.body.scrollHeight) {
+          this.$store.commit("incPageNumber");
+          this.$store.dispatch("getPodcasts");
+        }
+      };
+    }
   },
   created() {
-    this.$store.dispatch("getPodcasts");
+    this.getMorePodcasts();
   }
 };
 </script>

@@ -5,7 +5,7 @@
 				h1.Listen__header {{podcastTitle}}
 				.Listen__podcast(v-for='pod in podcast.episodes')
 					.Listen__podcast__img
-						img(:src='podcast.image')
+						img(:src='podcast.image', style='height: 80px; width: 80px')
 					.Listen__podcast__info
 						.Listen__podcast__title 
 							h3 {{pod.title}}
@@ -60,6 +60,7 @@ export default {
 
 .Listen {
   color: $font-color;
+  margin-bottom: 10rem;
 
   &__header {
     font-size: 6rem;
@@ -77,18 +78,16 @@ export default {
 
     &__img {
       margin-right: 3rem;
-      width: 10rem;
-      img {
-        width: 100%;
-      }
     }
 
     &__title {
       margin-bottom: 1rem;
+      width: 80%;
     }
 
     &__desc {
       font-size: 14px;
+      width: 80%;
     }
 
     &--btn {
@@ -104,8 +103,8 @@ export default {
       transform: translateY(-50%);
       display: flex;
       justify-content: flex-start;
-			align-items: center;
-			outline: none;
+      align-items: center;
+      outline: none;
 
       &-icon {
         margin-right: 1rem;
