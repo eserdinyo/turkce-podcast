@@ -23,7 +23,7 @@ export default {
 
       window.onscroll = ev => {
         if (window.innerHeight + window.scrollY >= document.body.scrollHeight) {
-          this.$store.commit("incPageNumber");
+          this.$store.commit("INC_PAGE_NUMBER");
           this.$store.dispatch("getPodcasts");
         }
       };

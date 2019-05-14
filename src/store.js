@@ -13,16 +13,16 @@ export default new Vuex.Store({
     pageNumber: 1,
   },
   mutations: {
-    setPodcasts(state, payload) {
+    SET_PODCASTS(state, payload) {
       state.podcasts = state.podcasts.concat(payload);
     },
-    setPodcast(state, payload) {
+    SET_PODCAST(state, payload) {
       state.podcast = payload;
     },
-    setPodcastname(state, payload) {
+    SET_PODCAST_NAME(state, payload) {
       state.podcastTitle = payload;
     },
-    incPageNumber(state) {
+    INC_PAGE_NUMBER(state) {
       state.pageNumber += 1;
     }
   },
@@ -30,12 +30,12 @@ export default new Vuex.Store({
     async getPodcasts({ commit, state }) {
       if (state.pageNumber <= 5) {
         const res = await http.get(`/best_podcasts?page=${state.pageNumber}&region=tr&safe_mode=1`);
-        commit('setPodcasts', res.data.podcasts);
+        commit('SET_PODCASTS', res.data.podcasts);
       }
     },
     async getPodcast({ commit }, podcastID) {
       const res = await http.get(`/podcasts/${podcastID}?next_episode_pub_date=1479154463000&sort=recent_first`);
-      commit('setPodcast', res.data);
+      commit('SET_PODCAST', res.data);
     }
   },
 });

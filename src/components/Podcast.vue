@@ -20,7 +20,7 @@ export default {
     },
     goDeatil(id) {
       this.$router.push({ name: "listen", params: { id } });
-      this.$store.commit("setPodcastname", this.podcast.title);
+      this.$store.commit("SET_PODCAST_NAME", this.podcast.title);
     }
   }
 };
