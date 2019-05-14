@@ -29,6 +29,7 @@ export default {
       };
     }
   },
+  
   created() {
     this.getMorePodcasts();
   }
@@ -36,12 +37,24 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "@/style/main.scss";
+
 .Podcasts {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   grid-gap: 2rem;
   margin: 0 auto;
-  width: 120rem;
   margin-top: 3rem;
+
+  @include res(tab) {
+    grid-template-columns: repeat(4, 1fr);
+    margin: 3rem 2rem 0 2rem;
+  }
+
+  @include res(big) {
+    width: 120rem;
+    grid-template-columns: repeat(5, 1fr);
+    margin: 3rem auto;
+  }
 }
 </style>

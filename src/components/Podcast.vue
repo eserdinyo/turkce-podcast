@@ -32,6 +32,11 @@ export default {
 .Podcast {
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin: 2rem;
+
+  @include res(tab) {
+    margin: 0;
+  }
 
   &__top {
     border-top-left-radius: 3px;

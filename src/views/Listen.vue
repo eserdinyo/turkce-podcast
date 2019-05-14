@@ -43,6 +43,14 @@ export default {
       this.audio = audio;
     }
   },
+  /* beforeRouteEnter(to, from, next) {
+    console.log(from);
+    console.log(to);
+    next({ 
+      name: "login",
+      query: { redirect: 'foo' }
+      });
+  }, */
   created() {
     const podcastID = this.$route.params.id;
     this.$store.dispatch("getPodcast", podcastID);
