@@ -11,6 +11,7 @@ export default new Vuex.Store({
     podcast: [],
     podcastTitle: '',
     pageNumber: 1,
+    audioFile: '',
   },
   mutations: {
     SET_PODCASTS(state, payload) {
@@ -24,7 +25,10 @@ export default new Vuex.Store({
     },
     INC_PAGE_NUMBER(state) {
       state.pageNumber += 1;
-    }
+    },
+    SET_AUDIO_FILE(state, payload) {
+      state.audioFile = payload;
+    },
   },
   actions: {
     async getPodcasts({ commit, state }) {
@@ -36,6 +40,6 @@ export default new Vuex.Store({
     async getPodcast({ commit }, podcastID) {
       const res = await http.get(`/podcasts/${podcastID}?next_episode_pub_date=1479154463000&sort=recent_first`);
       commit('SET_PODCAST', res.data);
-    }
+    },
   },
 });

@@ -14,7 +14,6 @@ new Vue({
 }).$mount('#app');
 
 
-
 /* router.afterEach(() => {
   window.scrollTo(0, 0);
 }) */
@@ -22,13 +21,13 @@ new Vue({
 /* router.beforeEach((to, from, next) => {
   console.log(from);
   console.log(to);
-  
+
   console.log(to.matched.some(record => record.meta.isAuth));
   next();
-  
+
   if(to.meta.isAuth) {
     router.push({name: 'login'})
   }else{
     next();
-  } 
+  }
 }) */

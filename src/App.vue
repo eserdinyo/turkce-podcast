@@ -1,23 +1,42 @@
-<template>
-  <div id="app">
-    <Header/>
-    <transition name="page" mode="out-in">
-      <router-view/>
-    </transition>
-  </div>
+<template lang='pug'>
+	#app
+		Header
+		transition(name='page', mode='out-in')
+			router-view
+		.Player(v-if='audioFile')
+			VueAudio(:file='audioFile')
 </template>
 
 <script>
-import Header from "./components/Header";
+import VueAudio from 'vue-audio';
+import { mapState } from 'vuex';
+import Header from './components/Header';
 
 export default {
   components: {
-    Header
-  }
+    Header,
+    VueAudio,
+  },
+  computed: {
+    ...mapState(['audioFile']),
+  },
 };
 </script>
 
 <style lang="scss">
+@import "@/style/main.scss";
+
+.Player {
+  position: fixed;
+  bottom: 0;
+  background-color: $bg-podcast;
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .icon-stop2 {
   display: none !important;
 }

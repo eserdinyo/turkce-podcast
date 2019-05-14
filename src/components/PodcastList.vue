@@ -1,38 +1,38 @@
 <template lang="pug">
 	.Podcasts
-		Podcast(v-for="podcast in podcasts" 
-		:key='podcast.id' 
+		Podcast(v-for="(podcast, idx) in podcasts"
+		:key='idx'
 		:podcast="podcast")
 </template>
 
 <script>
-import Podcast from "./Podcast";
-import { mapState } from "vuex";
-import http from "../utils/axios-config";
+import { mapState } from 'vuex';
+import Podcast from './Podcast';
+import http from '../utils/axios-config';
 
 export default {
   components: {
-    Podcast
+    Podcast,
   },
   computed: {
-    ...mapState(["podcasts", "pageNumber"])
+    ...mapState(['podcasts', 'pageNumber']),
   },
   methods: {
     getMorePodcasts() {
-      this.$store.dispatch("getPodcasts");
+      this.$store.dispatch('getPodcasts');
 
-      window.onscroll = ev => {
+      window.onscroll = (ev) => {
         if (window.innerHeight + window.scrollY >= document.body.scrollHeight) {
-          this.$store.commit("INC_PAGE_NUMBER");
-          this.$store.dispatch("getPodcasts");
+          this.$store.commit('INC_PAGE_NUMBER');
+          this.$store.dispatch('getPodcasts');
         }
       };
-    }
+    },
   },
-  
+
   created() {
     this.getMorePodcasts();
-  }
+  },
 };
 </script>
 

@@ -7,54 +7,49 @@
 					.Listen__podcast__img
 						img(:src='podcast.image', style='height: 80px; width: 80px')
 					.Listen__podcast__info
-						.Listen__podcast__title 
+						.Listen__podcast__title
 							h3 {{pod.title}}
 						.Listen__podcast__desc
 							p(v-html='pod.description')
-					button.Listen__podcast--btn(@click='play(pod.audio)') 
+					button.Listen__podcast--btn(@click='play(pod.audio)')
 						iconPlay.Listen__podcast--btn-icon
 						| Dinle
-		.Player
-			VueAudio(:file='audio')
-
 </template>
 
 
 <script>
-import { mapState } from "vuex";
-import VueAudio from "vue-audio";
-import iconPlay from "../assets/icon-play";
+import { mapState } from 'vuex';
+import iconPlay from '../assets/icon-play';
+
 export default {
   data() {
     return {
-      podcastID: "",
-      audio: ""
+      podcastID: '',
     };
   },
   components: {
-    VueAudio,
-    iconPlay
+    iconPlay,
   },
   computed: {
-    ...mapState(["podcast", "podcastTitle"])
+    ...mapState(['podcast', 'podcastTitle']),
   },
   methods: {
     play(audio) {
-      this.audio = audio;
-    }
+      this.$store.commit('SET_AUDIO_FILE', audio);
+    },
   },
   /* beforeRouteEnter(to, from, next) {
     console.log(from);
     console.log(to);
-    next({ 
+    next({
       name: "login",
       query: { redirect: 'foo' }
       });
   }, */
   created() {
     const podcastID = this.$route.params.id;
-    this.$store.dispatch("getPodcast", podcastID);
-  }
+    this.$store.dispatch('getPodcast', podcastID);
+  },
 };
 </script>
 
@@ -120,16 +115,5 @@ export default {
       }
     }
   }
-}
-
-.Player {
-  position: fixed;
-  bottom: 0;
-  background-color: $bg-podcast;
-  width: 100%;
-  padding: 2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 </style>

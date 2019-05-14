@@ -10,19 +10,19 @@
 
 <script>
 export default {
-  props: ["podcast"],
+  props: ['podcast'],
   methods: {
     getDescription(desc) {
       if (desc) {
-        if (desc.length > 150) return desc.substr(0, 150) + "...";
-        else return desc;
+        if (desc.length > 150) return `${desc.substr(0, 150)}...`;
+        return desc;
       }
     },
     goDeatil(id) {
-      this.$router.push({ name: "listen", params: { id } });
-      this.$store.commit("SET_PODCAST_NAME", this.podcast.title);
-    }
-  }
+      this.$router.push({ name: 'listen', params: { id } });
+      this.$store.commit('SET_PODCAST_NAME', this.podcast.title);
+    },
+  },
 };
 </script>
 

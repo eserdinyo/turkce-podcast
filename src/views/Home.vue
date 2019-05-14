@@ -7,9 +7,9 @@
 import PodcastList from '../components/PodcastList';
 
 export default {
-  name: "home",
+  name: 'home',
   components: {
     PodcastList,
-  }
+  },
 };
 </script>

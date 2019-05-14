@@ -2,25 +2,25 @@
 	.Login
 		input(type='text', placeholder='E-posta')
 		input(type='password', placeholder='Şifre')
-		button() Giriş
+		button Giriş
 </template>
 
 <script>
 export default {
-	data() {
-		return {
-			fo: 'foo'
-		}
-	},
+  data() {
+    return {
+      fo: 'foo',
+    };
+  },
   beforeRouteEnter(to, from, next) {
-		next(vm => {
-			console.log(vm.fo);
-		})
+    next((vm) => {
+      console.log(vm.fo);
+    });
 
     // called before the route that renders this component is confirmed.
     // does NOT have access to `this` component instance,
     // because it has not been created yet when this guard is called!
-  }
+  },
 };
 </script>
 
@@ -59,4 +59,3 @@ export default {
   }
 }
 </style>
-
